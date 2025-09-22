@@ -1,10 +1,4 @@
-// ...existing code...
-// Configuração do multer (upload de imagens)
 
-// Rota raiz para evitar erro 'Cannot GET /'
-app.get('/', (req, res) => {
-  res.send('API do catálogo online!');
-});
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
@@ -18,10 +12,15 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Configuração do multer (upload de imagens)
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, 'uploads/'),
-  filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname))
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
 });
 const upload = multer({ storage });
+
 
 // Rota para listar produtos
 app.get('/produtos', (req, res) => {
