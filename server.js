@@ -1,3 +1,6 @@
+// ...existing code...
+// Configuração do multer (upload de imagens)
+
 // Rota raiz para evitar erro 'Cannot GET /'
 app.get('/', (req, res) => {
   res.send('API do catálogo online!');
