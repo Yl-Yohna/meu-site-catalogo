@@ -1,0 +1,14 @@
+<h2>Catálogo de Produtos</h2>
+
+<div *ngIf="produtos.length > 0; else semProdutos">
+  <div *ngFor="let produto of produtos" class="produto-card">
+    <img [src]="produto.imagemUrl" alt="{{produto.nome}}" width="150">
+    <h3>{{ produto.nome }}</h3>
+    <p>{{ produto.descricao }}</p>
+    <p>Preço: R$ {{ produto.preco }}</p>
+  </div>
+</div>
+
+<ng-template #semProdutos>
+  <p>Nenhum produto encontrado.</p>
+</ng-template>
