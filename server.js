@@ -1,3 +1,7 @@
+// Rota raiz para evitar erro 'Cannot GET /'
+app.get('/', (req, res) => {
+  res.send('API do catálogo online!');
+});
 const express = require('express');
 const cors = require('cors');
 const multer = require('multer');
