@@ -33,7 +33,13 @@
       lista.innerHTML = '';
       produtos.forEach(p => {
         const li = document.createElement('li');
-        li.innerHTML = `${p.nome} - R$ ${p.preco} <br> ${p.imagem ? `<img src="http://localhost:5000/uploads/${p.imagem}" width="100">` : ''}`;
+    li.innerHTML = `
+  ${p.nome} - R$ ${p.preco} <br>
+  <img src="${p.imagem 
+    ? `http://localhost:5000/uploads/${p.imagem}` 
+    : 'https://placehold.co/100x100?text=Sem+Imagem'}" width="100">
+`;
+;
         lista.appendChild(li);
       });
     }
